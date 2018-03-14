@@ -1,6 +1,6 @@
 FROM php:7.1.15-fpm-jessie
 
-RUN apt-get update -y && apt-get install -y openssl unixodbc zip unzip git wget libfreetype6-dev libjpeg62-turbo-dev libpng-dev libldb-dev libldap2-dev unixodbc-dev \
+RUN apt-get update -y && apt-get install -y openssl git-ftp unixodbc zip unzip git wget libfreetype6-dev libjpeg62-turbo-dev libpng-dev libldb-dev libldap2-dev unixodbc-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/
 RUN cd /tmp/ && wget https://github.com/Microsoft/msphpsql/raw/master/ODBC%2017%20binaries%20preview/Debian%208/msodbcsql_17.0.0.5-1_amd64.deb \
